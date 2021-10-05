@@ -358,12 +358,14 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar
-            app
+        <!-- <v-app-bar
+            /app
             :src="require('./assets/background1.gif')"
             color="rgba(255, 255, 255, 0.3)"
             dark
-        >
+        > -->
+        <v-app-bar color="rgba(255, 255, 255, 0.3)"
+            dark >
             <template v-slot:img="{ props }">
                 <v-img
                     v-bind="props"
