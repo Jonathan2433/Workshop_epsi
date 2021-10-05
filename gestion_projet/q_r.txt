@@ -1,0 +1,142 @@
+insérez dans l'ordre : 
+
+- les établissements 
+- les utilisateurs 
+- les resultat
+- les themes
+- les questions
+- les reponses
+
+( Requete SQL pour l'insert des établisssements )
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Bordeaux');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Bordeaux');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Bordeaux');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Paris');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Paris');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Paris');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Toulouse');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Toulouse');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Toulouse');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Lyon');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Lyon');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Lyon');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Renne');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Renne');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Renne');
+
+( Requete SQL pour l'insert des utilisateurs )
+INSERT INTO `utilisateur`(`id_etablissement`, `nom`, `prenom`, `mail`, `age`, `metier`,`mdp`, `role`) VALUES ('1','Dupau','Jonathan','jonathan.dupau24@gmail.com','29','développeur','azerty','admin');
+
+
+coucou
+
+
+
+
+
+
+
+
+
+( Requete SQL pour l'insert des themes )
+INSERT INTO `theme`(`theme`) VALUES ('articulations');
+INSERT INTO `theme`(`theme`) VALUES ('postures');
+INSERT INTO `theme`(`theme`) VALUES ('bureau');
+INSERT INTO `theme`(`theme`) VALUES ('mesure de prévention');
+INSERT INTO `theme`(`theme`) VALUES ('chiffres');
+
+
+Quelle est la part de français qui seront atteints par le mal de dos au moins une fois dans leur vie ?
+80%
+
+Afin de préserver son dos, il est souhaitable :
+De s'échauffer avant une effort
+
+Le lumbago est une douleur aiguë au niveau :
+Du dos
+
+L’arthrose est une pathologie qui touche :
+Les articulations
+
+La colonne vertébrale est constituée d’environ :
+32 à 34 vertébres
+
+Une tendinite est une inflammation : 
+Du tendon 
+
+Lors d'un travail continuel sur ordinateur, il est préférable de :
+Faire des pauses fréquentes
+
+Lors d’une posture prolongée, les muscles fonctionnent en :
+Travail statique
+
+Lorsque l'on est assis, la meilleure position est:
+Au fond du siége 
+
+Lors de l'utilisation d'un ordinateur, il faut:
+Faire face à l'écran à plus de 50cm
+
+Les lombalgies sont favorisées par :
+Le port des charges lourdes
+
+Lorsque la posture mise en œuvre pour soulever un poids est mauvaise, la pression qui s'exerce sur les disques intervertébraux peut être jusqu'à :
+Quatre fois plus importante
+
+Lorsqu'on soulève un poids, pour préserver sa colonne vertébrale, le dos doit être :
+Droit
+
+Entre chaque vertèbre se trouvent:
+Les disques intervertébraux
+
+Une lombalgie se manifeste par :
+Une douleur en bas du dos
+
+Que signifie l’acronyme TMS ?
+Trouble Musculo-Squelettique
+
+Selon vous, quel est l’intérêt de suivre une initiation aux gestes et postures ?
+Réduire le risque de TMS
+
+Quels sont les facteurs (éléments) de risques dus à l'activité physique ?
+posture contraignante
+gestes répétitifs
+efforts physiques
+écrasements ou chocs
+
+La hernie discale c'est :
+le noyau qui s'écoule entre les fibres et peut toucher la moelle épinière avec paralysie
+
+Parmi ces mesures de prévention laquelle est une mesure individuelle ?
+la ceinture lombaire
+
+Les facteurs de risques liés à l'activité physique sont :
+les gestes répétitifs
+les vibrations
+les postures contraignantes (bras tendu, torsion...)
+
+Après une journée de travail il est conseillé de pratiquer :
+Des étirements
+Des assouplissements
+(22)
+
+
+
+
+
+( Requete SQL pour l'insert des questions ) ( en cours )
+INSERT INTO `question`(`id_theme`, `question`) VALUES 
+('5','Quelle est la part de français qui seront atteints par le mal de dos au moins une fois dans leur vie ?');
+('4','Afin de préserver son dos, il est souhaitable :');
+('1','Le lumbago est une douleur aiguë au niveau :');
+('1','L’arthrose est une pathologie qui touche :');
+('1','La colonne vertébrale est constituée d’environ :');
+
+
+
+
+
+
+
+
+
+
