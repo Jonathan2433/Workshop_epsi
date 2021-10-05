@@ -1,0 +1,95 @@
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Quelle est la part de français qui seront atteints par le mal de dos au moins une fois dans leur vie ?');
+80%
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Afin de préserver son dos, il est souhaitable');
+De s'échauffer avant une effort
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Le lumbago est une douleur aiguë au niveau');
+Du dos
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'L’arthrose est une pathologie qui touche');
+Les articulations
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'La colonne vertébrale est constituée d’environ');
+32 à 34 vertébres
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Une tendinite est une inflammation');
+Du tendon 
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Lors d'un travail continuel sur ordinateur, il est préférable de');
+Faire des pauses fréquentes
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Lors d’une posture prolongée, les muscles fonctionnent en');
+Travail statique
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Lorsque l'on est assis, la meilleure position est');
+Au fond du siége 
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Lors de l'utilisation d'un ordinateur, il faut');
+Faire face à l'écran à plus de 50cm
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Les lombalgies sont favorisées par');
+Le port des charges lourdes
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Lorsque la posture mise en œuvre pour soulever un poids est mauvaise, la pression qui s'exerce sur les disques intervertébraux peut être jusqu'à');
+Quatre fois plus importante
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Lorsqu'on soulève un poids, pour préserver sa colonne vertébrale, le dos doit être');
+Droit
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Entre chaque vertèbre se trouvent');
+Les disques intervertébraux
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Une lombalgie se manifeste par');
+Une douleur en bas du dos
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Que signifie l’acronyme TMS ?');
+Trouble Musculo-Squelettique
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Selon vous, quel est l’intérêt de suivre une initiation aux gestes et postures ?');
+Réduire le risque de TMS
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Quels sont les facteurs (éléments) de risques dus à l'activité physique ?');
+posture contraignante
+gestes répétitifs
+efforts physiques
+écrasements ou chocs
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'La hernie discale c'est');
+le noyau qui s'écoule entre les fibres et peut toucher la moelle épinière avec paralysie
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Parmi ces mesures de prévention laquelle est une mesure individuelle ?');
+la ceinture lombaire
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Les facteurs de risques liés à l'activité physique sont');
+les gestes répétitifs
+les vibrations
+les postures contraignantes (bras tendu, torsion...)
+
+INSERT INTO question (id_theme, question) VALUES ('1', 'Après une journée de travail il est conseillé de pratiquer');
+Des étirements
+Des assouplissements
+(22)
+
+( Requete SQL pour l'insert des questions ) ( en cours )
+INSERT INTO `question`(`id_theme`, `question`) VALUES 
+([value-1],'Quelle est la part de français qui seront atteints par le mal de dos au moins une fois dans leur vie ?');
+
+( Requete SQL pour l'insert des établisssements )
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Bordeaux');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Bordeaux');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Bordeaux');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Paris');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Paris');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Paris');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Toulouse');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Toulouse');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Toulouse');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Lyon');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Lyon');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Lyon');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPITECH','Renne');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('EPSI','Renne');
+INSERT INTO `etablissement`(`nom`, `adresse`) VALUES ('WIS','Renne');
+
