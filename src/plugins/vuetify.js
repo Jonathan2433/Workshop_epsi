@@ -6,15 +6,15 @@ import tiktok from "@/components/tiktok.vue";
 Vue.use(Vuetify);
 
 export default new Vuetify({
-    iconfont: 'mdi',
-    icons: {
-        values: {
-            customLogo: {
-                component: CustomLogo,
-            },
-            tiktok: {
-                component: tiktok,
-            }
-        },
+  iconfont: "mdi",
+  icons: {
+    values: {
+      customLogo: {
+        component: CustomLogo,
+      },
+      tiktok: {
+        component: tiktok,
+      },
     },
+  },
 });
