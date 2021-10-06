@@ -8,13 +8,11 @@
             temporary
             bottom
             right
+            hide-overlay
             class="blured"
         >
             <v-sheet class="pa-4" dark>
                                 <v-btn-toggle rounded>
-                    <!-- <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn> -->
 
                     <v-dialog
                         transition="dialog-top-transition"
@@ -22,6 +20,8 @@
                         absolute
                         max-width="600px"
                         min-width="360px"
+                        background-color="transparent"
+                        hide-overlay=True
                     >
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn
@@ -45,15 +45,15 @@
                             </v-btn>
                         </template>
 
-                        <v-card>
-                            <div>
+                        <v-card class="transparent">
+                            <div class="transparent">
                                 <v-tabs
                                     v-model="login.tab"
                                     show-arrows
-                                    background-color="deep-purple accent-4"
                                     icons-and-text
                                     dark
                                     grow
+                                    class="transparent"
                                 >
                                     <v-tabs-slider
                                         color="purple darken-4"
@@ -61,6 +61,7 @@
                                     <v-tab
                                         v-for="formtab in login.formtabs"
                                         :key="formtab.name"
+                                        class="transparent"
                                     >
                                         <v-icon large>{{
                                             formtab.icon
@@ -69,9 +70,9 @@
                                             {{ formtab.name }}
                                         </div>
                                     </v-tab>
-                                    <v-tab-item>
+                                    <v-tab-item class="blured">
                                         <v-card class="px-4">
-                                            <v-card-text>
+                                            <v-card-text >
                                                 <v-form
                                                     ref="loginForm"
                                                     v-model="login.valid"
@@ -164,7 +165,7 @@
                                             </v-card-text>
                                         </v-card>
                                     </v-tab-item>
-                                    <v-tab-item>
+                                    <v-tab-item class="blured">
                                         <v-card class="px-4">
                                             <v-card-text>
                                                 <v-form
@@ -209,7 +210,47 @@
                                                                 required
                                                             ></v-text-field>
                                                         </v-col>
-                                                        <v-col cols="12">
+                                                    </v-row>
+                                                    <v-row>
+                                                        <v-col
+                                                            cols="12"
+                                                            sm="6"
+                                                            md="6"
+                                                        >
+                                                            <v-text-field
+                                                                v-model="
+                                                                    login.cForm
+                                                                "
+                                                                :rules="[
+                                                                    login.rules
+                                                                        .required,
+                                                                ]"
+                                                                label="Centre de Formation"
+                                                                maxlength="20"
+                                                                required
+                                                            ></v-text-field>
+                                                        </v-col>
+                                                        <v-col
+                                                            cols="12"
+                                                            sm="6"
+                                                            md="6"
+                                                        >
+                                                            <v-text-field
+                                                                v-model="
+                                                                    login.metier
+                                                                "
+                                                                :rules="[
+                                                                    login.rules
+                                                                        .required,
+                                                                ]"
+                                                                label="Formation"
+                                                                maxlength="20"
+                                                                required
+                                                            ></v-text-field>
+                                                        </v-col>
+                                                    </v-row>
+                                                    <v-row>
+                                                        <v-col cols="10">
                                                             <v-text-field
                                                                 v-model="
                                                                     login.email
@@ -221,7 +262,21 @@
                                                                 required
                                                             ></v-text-field>
                                                         </v-col>
-                                                        <v-col cols="12">
+                                                        <v-col cols="2" >
+                                                            <v-select
+                                                                v-model="
+                                                                    login.age
+                                                                "
+                                                                :items="listAge"
+                                                                :menu-props="{ top: true, offsetY: true }"
+                                                                label="Age"
+                                                                required
+                                                            ></v-select>
+                                                        </v-col>
+                                                    </v-row>
+                                                    <v-row>
+                                                        <v-col cols="12" sm="6"
+                                                            md="6">
                                                             <v-text-field
                                                                 v-model="
                                                                     login.password
@@ -251,7 +306,8 @@
                                                                 "
                                                             ></v-text-field>
                                                         </v-col>
-                                                        <v-col cols="12">
+                                                        <v-col cols="12" sm="6"
+                                                            md="6">
                                                             <v-text-field
                                                                 block
                                                                 v-model="
@@ -330,13 +386,7 @@
                         {{ this.$session.get("firstName") }}
                     </v-btn>
                 </v-btn-toggle>
-                <v-avatar
-                    class="mb-4"
-                    color="grey darken-1"
-                    size="64"
-                ></v-avatar>
 
-                <div dark>plop@plop.com</div>
             </v-sheet>
 
             <v-divider></v-divider>
@@ -358,14 +408,12 @@
             </v-list>
         </v-navigation-drawer>
 
-        <!-- <v-app-bar
-            /app
+        <v-app-bar
+            app
             :src="require('./assets/background1.gif')"
             color="rgba(255, 255, 255, 0.3)"
             dark
-        > -->
-        <v-app-bar color="rgba(255, 255, 255, 0.3)"
-            dark >
+        >
             <template v-slot:img="{ props }">
                 <v-img
                     v-bind="props"
@@ -542,10 +590,6 @@ export default {
             window.location.reload();
         },
         isdisabled(item) {
-            // console.log(item.tabName);
-            // console.log("email : ", this.$session.exists('email'));
-            // console.log("blocked : ", !item.blocked);
-            // console.log(!(this.$session.exists('email') || !item.blocked));
             return !(this.islogged() || item.allowed);
         },
         islogged() {
@@ -572,25 +616,19 @@ export default {
     },
 
     mounted() {
+        function range(start, end) {
+            return Array(end - start + 1).fill().map((_, idx) => start + idx)
+            }
         this.onResize();
         window.addEventListener("resize", this.onResize, { passive: true });
+        this.listAge = [...range(10, 100)];
     },
-
-    // methods: {
-    //     onResize() {
-    //         let x = window.innerWidth;
-    //         if (x <= 961) {
-    //             this.panel = [];
-    //         } else {
-    //             this.panel = [0, 1, 2, 3];
-    //         }
-    //     },
-    // },
 
     data: () => ({
         loading: false,
         loader: null,
         userid: null,
+        listAge: [],
         login: {
             dialog: false,
             tab: 0,
@@ -602,6 +640,9 @@ export default {
 
             firstName: "",
             lastName: "",
+            age: "",
+            centre_formation: "",
+            formation: "",
             email: "",
             password: "",
             verify: "",
@@ -630,7 +671,6 @@ export default {
             ["mdi-progress-question", "Quizz"],
             ["mdi-chart-bar-stacked", "Statistiques"],
             ["mdi-shield-key-outline", "Admin"],
-            ["mdi-account-off", "Déconnexion"],
         ],
         panel: [0, 1, 2, 3],
         socials: [
@@ -639,6 +679,7 @@ export default {
             { name: "google", icon: "mdi-google", url: "#" },
             { name: "linkedin", icon: "mdi-linkedin", url: "#" },
             { name: "instagram", icon: "mdi-instagram", url: "#" },
+            { name: "tiktok", icon: "$vuetify.icons.tiktok", url: "#" }
         ],
         footeritems: [
             {
@@ -700,19 +741,20 @@ export default {
 <style>
 @font-face {
     font-family: Mainfont;
-    src: url(./assets/VarelaRound-Regular.ttf);
+    src: url(./assets/Poppins-Medium.ttf);
 }
 ::-webkit-scrollbar {
     display: none;
 }
 * {
     font-family: Mainfont !important;
+    
 }
 
 .blured {
-    background: rgba(255, 255, 255, 0.25) !important;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
-    backdrop-filter: blur(4px) !important;
+    background: rgba(184, 184, 184, 0.2) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
     -webkit-backdrop-filter: blur(4px) !important;
     border-radius: 10px !important;
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
@@ -742,22 +784,18 @@ export default {
 }
 
 .random-background {
-    background: linear-gradient(
-        349deg,
-        #f0dbff,
-        #d8c4f5,
-        #add4f0,
-        #9fcbf5,
-        #7d8cff
-    ) !important;
-    background-size: 1000% 1000%;
+    background: linear-gradient(135deg, 
+                                rgba(125,140,255,1) 0%, 
+                                rgba(159,203,245,1) 25%, 
+                                rgba(173,212,240,1) 50%, 
+                                rgba(240,219,255,0.8063958859911152) 75%,
+                                rgba(216,196,245,1) 100%) !important;
 
-    -webkit-animation: AnimationName 10s ease infinite;
-    animation: AnimationName 10s ease infinite;
 }
 
 .transparent,
-.v-footer > * {
+.v-footer > *,
+.login_form *{
     background: transparent !important;
     background-color: transparent !important;
 }

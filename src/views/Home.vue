@@ -8,8 +8,8 @@
             </v-col>
 
             <v-col cols="12" sm="8">
-                <v-sheet min-height="70vh" rounded="lg" class="blured">
-                    <h1>Bienvenue sur HandiQuizz !</h1>
+                <v-sheet min-height="70vh" rounded="lg" class="blured" >
+                    <h1 style="mix-blend-mode: difference;">Bienvenue sur HandiQuizz !</h1>
                     <p>Apprenez les faiblesses des handicapés :)</p>
                 </v-sheet>
             </v-col>
