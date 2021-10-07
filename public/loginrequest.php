@@ -4,59 +4,59 @@ include "config.php";
 
 // Prenom
 $cond_nom = "1";
-if(isset($_GET['nom']) and $_GET['nom'] != ""){
+if(isset($_GET['nom']) && $_GET['nom'] != ""){
     $nom = $_GET['nom'];
     $cond_nom = "nom='".$nom."'";
 }
 
 // Nom
 $cond_prenom = "1";
-if(isset($_GET['prenom']) and $_GET['prenom'] != ""){
+if(isset($_GET['prenom']) && $_GET['prenom'] != ""){
     $prenom = $_GET['prenom'];
     $cond_prenom = "prenom='".$prenom."'";
 }
 
 // age
 $cond_age = "1";
-if(isset($_GET['age']) and $_GET['age'] != ""){
+if(isset($_GET['age']) && $_GET['age'] != ""){
     $age = $_GET['age'];
     $cond_age = "age='".$age."'";
 }
 
 // Centre de formation
 $cond_centre_formation = "1";
-if(isset($_GET['centre_formation']) and $_GET['centre_formation'] != ""){
+if(isset($_GET['centre_formation']) && $_GET['centre_formation'] != ""){
     $centre_formation = $_GET['centre_formation'];
     $cond_centre_formation = "centre_formation='".$centre_formation."'";
 }
 
 // Metier
 $cond_formation = "1";
-if(isset($_GET['formation']) and $_GET['formation'] != ""){
+if(isset($_GET['formation']) && $_GET['formation'] != ""){
     $formation = $_GET['formation'];
     $cond_formation = "formation='".$formation."'";
 }
 
 // Email
 $cond_mail = "1";
-if(isset($_GET['mail']) and $_GET['mail'] != ""){
+if(isset($_GET['mail']) && $_GET['mail'] != ""){
     $mail = $_GET['mail'];
     $cond_mail = "mail='".$mail."'";
 }
 $cond_loginMail = "1";
-if(isset($_GET['loginMail']) and $_GET['loginMail'] != ""){
+if(isset($_GET['loginMail']) && $_GET['loginMail'] != ""){
     $loginMail = $_GET['loginMail'];
     $cond_loginMail = "mail='".$loginMail."'";
 }
 
 // Password
 $cond_password = "1";
-if(isset($_GET['password']) and $_GET['password'] != ""){
+if(isset($_GET['password']) && $_GET['password'] != ""){
     $password = hash("sha256", $_GET['password']);
     $cond_password = "password='".$password."'";
 }
 $cond_loginPassword = "1";
-if(isset($_GET['loginPassword']) and $_GET['loginPassword'] != ""){
+if(isset($_GET['loginPassword']) && $_GET['loginPassword'] != ""){
     $loginPassword = hash("sha256", $_GET['loginPassword']);
     $cond_loginPassword = "password='".$loginPassword."'";
 }
