@@ -837,6 +837,10 @@ export default {
     font-family: Mainfont !important;
 }
 
+.fullWidth {
+  max-width: 100vw !important;
+}
+
 .blured {
     background: rgba(184, 184, 184, 0.2) !important;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;

@@ -29,9 +29,3 @@ export default {
   name: "Home",
 };
 </script>
-
-<style scoped>
-.fullWidth {
-  max-width: 100vw !important;
-}
-</style>
