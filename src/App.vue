@@ -585,8 +585,8 @@ export default {
                             nom: this.login.nom,
                             prenom: this.login.prenom,
                             age: this.login.age,
-                            centre_formation: this.login.centre_formation,
-                            formation: this.login.formation,
+                            centre_formation: this.login.centre_formation.id_etablissement,
+                            formation: this.login.formation.id_metier,
                             mail: this.login.mail,
                             password: this.login.password,
                             loginMail: this.login.loginMail,
@@ -596,13 +596,14 @@ export default {
                 )
                 .then((response) => {
                     this.users = response.data;
-                    //console.log(this.users[0]);
                     if (this.users[0]) {
-                        this.$session.set("id", this.users[0].id);
+                        this.$session.set("id", this.users[0].id_utilisateur);
                         this.$session.set("nom", this.users[0].nom);
                         this.$session.set("prenom", this.users[0].prenom);
                         this.$session.set("mail", this.users[0].mail);
-                        this.buildJson();
+                        this.$session.set("role", this.users[0].abilitation);
+                        this.$session.set("id_centre_formation", this.users[0].id_etablissement);
+                        this.$session.set("id_metier", this.users[0].id_metier);
                     } else {
                         alert("Invalid User or Password! \nTry again please");
                     }
@@ -764,12 +765,11 @@ export default {
         ],
         panel: [0, 1, 2, 3],
         socials: [
-            { name: "facebook", icon: "mdi-facebook", url: "#" },
-            { name: "twitter", icon: "mdi-twitter", url: "#" },
-            { name: "google", icon: "mdi-google", url: "#" },
-            { name: "linkedin", icon: "mdi-linkedin", url: "#" },
-            { name: "instagram", icon: "mdi-instagram", url: "#" },
-            { name: "tiktok", icon: "$vuetify.icons.tiktok", url: "#" },
+            { name: "facebook", icon: "mdi-facebook", url: "https://www.facebook.com/HandiQuizz-100680439063768" },
+            { name: "twitter", icon: "mdi-twitter", url: "https://twitter.com/HandiQuizz?t=UuPE0l-jdjXo0-t-ZWIOWQ&s=09" },
+            { name: "linkedin", icon: "mdi-linkedin", url: "https://www.linkedin.com/company/handiquizz/" },
+            { name: "instagram", icon: "mdi-instagram", url: "https://www.instagram.com/handiquizz/?hl=fr" },
+            { name: "tiktok", icon: "$vuetify.icons.tiktok", url: "https://www.tiktok.com/@handiquizz" },
         ],
         footeritems: [
             {
@@ -804,23 +804,20 @@ export default {
                 ],
             },
             {
-                name: "Resources",
+                name: "Get Help",
                 tags: [
-                    { urlname: "Blog", url: "#!" },
-                    { urlname: "eBooks", url: "#!" },
-                    { urlname: "Whitepapers", url: "#!" },
-                    { urlname: "Comparison Guide", url: "#!" },
-                    { urlname: "Website Grader", url: "#!" },
+                    { urlname: "Comment s'inscrire ? ", url: "#!" },
+                    { urlname: "Comment se connecter ? ", url: "#!" },
+                    { urlname: "Des idées de contenu à rajouter ? ", url: "#!" },
+                    { urlname: "Changer vos informations personnelles", url: "#!" },
                 ],
             },
             {
-                name: "Get Help",
+                name: "Contact Us",
                 tags: [
-                    { urlname: "Help Center", url: "#!" },
-                    { urlname: "Contact Us", url: "#!" },
-                    { urlname: "Privacy Policy", url: "#!" },
-                    { urlname: "Terms", url: "#!" },
-                    { urlname: "Login", url: "#!" },
+                    { urlname: "114 - Rue Lucien Faure, 33000, Bordeaux" },
+                    { urlname: "06 12 34 56 78" },
+                    { urlname: "handiquizzfr@gmail.com" }
                 ],
             },
         ],

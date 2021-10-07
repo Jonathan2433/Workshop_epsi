@@ -24,17 +24,17 @@ if(isset($_GET['age']) and $_GET['age'] != ""){
 }
 
 // Centre de formation
-$cond_centre_formation = "1";
+$cond_id_etablissement = "1";
 if(isset($_GET['centre_formation']) and $_GET['centre_formation'] != ""){
-    $centre_formation = $_GET['centre_formation'];
-    $cond_centre_formation = "centre_formation='".$centre_formation."'";
+    $id_etablissement = $_GET['centre_formation'];
+    $cond_id_etablissemant = "id_etablissement='".$id_etablissement."'";
 }
 
 // Metier
-$cond_formation = "1";
+$cond_id_metier = "1";
 if(isset($_GET['formation']) and $_GET['formation'] != ""){
-    $formation = $_GET['formation'];
-    $cond_formation = "formation='".$formation."'";
+    $id_metier = $_GET['formation'];
+    $cond_id_metier = "id_metier='".$id_metier."'";
 }
 
 // Email
@@ -53,17 +53,17 @@ if(isset($_GET['loginMail']) and $_GET['loginMail'] != ""){
 $cond_password = "1";
 if(isset($_GET['password']) and $_GET['password'] != ""){
     $password = hash("sha256", $_GET['password']);
-    $cond_password = "password='".$password."'";
+    $cond_password = "mdp='".$password."'";
 }
 $cond_loginPassword = "1";
 if(isset($_GET['loginPassword']) and $_GET['loginPassword'] != ""){
     $loginPassword = hash("sha256", $_GET['loginPassword']);
-    $cond_loginPassword = "password='".$loginPassword."'";
+    $cond_loginPassword = "mdp='".$loginPassword."'";
 }
 
 if(isset($_GET['requestType'])){
     if(strtolower($_GET['requestType']) == "select"){
-        $userData = mysqli_query($con,"SELECT * FROM utilisateur WHERE " . $cond_nom . " AND " . $cond_prenom . " AND " . $cond_age . " AND " . $cond_centre_formation . " AND " . $cond_formation . " AND " . $cond_mail . " AND ". $cond_loginMail . " AND " . $cond_password . " AND " . $cond_loginPassword);
+        $userData = mysqli_query($con,"SELECT * FROM utilisateur WHERE " . $cond_nom . " AND " . $cond_prenom . " AND " . $cond_age . " AND " . $cond_mail . " AND ". $cond_loginMail . " AND " . $cond_password . " AND " . $cond_loginPassword);
         // $response = "SELECT * FROM users WHERE " . $cond_nom . " AND " . $cond_prenom . " AND " . $cond_mail . " AND ". $cond_loginMail . " AND " . $cond_password . " AND " . $cond_loginPassword;
         $response = array();
         while($row = mysqli_fetch_assoc($userData)){
@@ -71,12 +71,17 @@ if(isset($_GET['requestType'])){
         }
     }
     if(strtolower($_GET['requestType']) == "insert"){
-        mysqli_query($con,"INSERT INTO utilisateur (id_utilisateur, nom, prenom, mail, age,  mdp) VALUES (null, \"" . $nom . "\", \"" . $prenom . "\", \"" . $mail . "\", \"" . $age . "\", \"" . $password . "\")");
-        $userData = mysqli_query($con,"SELECT * FROM users WHERE " . $cond_nom . " AND " . $cond_prenom . " AND " . $cond_mail . " AND ". $cond_loginMail . " AND " . $cond_password . " AND " . $cond_loginPassword);
-        // $response = "SELECT * FROM users WHERE " . $cond_nom . " AND " . $cond_prenom . " AND " . $cond_mail . " AND ". $cond_loginMail . " AND " . $cond_password . " AND " . $cond_loginPassword;
-        $response = array();
-        while($row = mysqli_fetch_assoc($userData)){
-            $response[] = $row;
+        $existing_mail = mysqli_query($con, "SELECT * FROM utilisateur WHERE " . $cond_mail);
+        if ($existing_mail->num_rows == null) {
+            mysqli_query($con,"INSERT INTO utilisateur (nom, prenom, mail, age,  mdp, id_metier, id_etablissement) VALUES (\"" . $nom . "\", \"" . $prenom . "\", \"" . $mail . "\", \"" . $age . "\", \"" . $password . "\", \"" . $id_metier . "\", \"" . $id_etablissement ."\")");
+            $userData = mysqli_query($con,"SELECT * FROM utilisateur WHERE " . $cond_nom . " AND " . $cond_prenom . " AND " . $cond_mail . " AND ". $cond_loginMail . " AND " . $cond_password . " AND " . $cond_loginPassword);
+            $response = array();
+            while($row = mysqli_fetch_assoc($userData)){
+                $response[] = $row;
+            }
+        } else {
+            echo json_encode(null);
+            exit;
         }
     }
 } else {
