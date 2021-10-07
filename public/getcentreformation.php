@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 include "config.php";
 
-$centre_formation = mysqli_query($con,"SELECT * FROM etablissement");
+$centre_formation = mysqli_query($con,"SELECT id_etablissement, nom FROM etablissement");
 while($row = mysqli_fetch_assoc($centre_formation)){
     $response[] = $row;
 }

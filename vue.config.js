@@ -1,4 +1,7 @@
 module.exports = {
-  transpileDependencies: ["vuetify"],
-  runtimeCompiler: true,
+    transpileDependencies: ["vuetify"],
+    runtimeCompiler: true,
+    devServer: {
+        disableHostCheck: true,
+    },
 };

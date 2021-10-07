@@ -137,6 +137,18 @@ CREATE TABLE IF NOT EXISTS Resultat(
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `Etab_Met`
+--
+
+DROP TABLE IF EXISTS Etab_Met;
+CREATE TABLE IF NOT EXISTS Etab_Met(
+   id_etablissement INT,
+   id_metier INT
+);
+
+-- --------------------------------------------------------
+
+--
 -- Primary Keys
 --
 
@@ -172,6 +184,9 @@ ALTER TABLE Resultat
 ADD CONSTRAINT PK_Resultat PRIMARY KEY (id_resultat,id_utilisateur, id_question, id_reponse),
 MODIFY id_resultat INT NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE Etab_Met
+ADD CONSTRAINT PK_Etab_Met PRIMARY KEY(id_etablissement, id_metier);
+
 -- --------------------------------------------------------
 
 --
@@ -187,12 +202,16 @@ ALTER TABLE Question
 ADD CONSTRAINT FK_q_theme FOREIGN KEY(id_theme) REFERENCES Theme(id_theme);
 
 ALTER TABLE Reponse
-ADD CONSTRAINT FK_rep_question FOREIGN KEY(id_question) REFERENCES question(id_question);
+ADD CONSTRAINT FK_rep_question FOREIGN KEY(id_question) REFERENCES Question(id_question);
 
 ALTER TABLE Resultat
-ADD CONSTRAINT FK_res_utilisateur FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id_utilisateur),
-ADD CONSTRAINT FK_res_question FOREIGN KEY(id_question) REFERENCES question(id_question),
-ADD CONSTRAINT FK_res_reponse FOREIGN KEY(id_reponse) REFERENCES reponse(id_reponse);
+ADD CONSTRAINT FK_res_utilisateur FOREIGN KEY(id_utilisateur) REFERENCES Utilisateur(id_utilisateur),
+ADD CONSTRAINT FK_res_question FOREIGN KEY(id_question) REFERENCES Question(id_question),
+ADD CONSTRAINT FK_res_reponse FOREIGN KEY(id_reponse) REFERENCES Reponse(id_reponse);
+
+ALTER TABLE Etab_Met
+ADD CONSTRAINT FK_EM_etablissement FOREIGN KEY(id_etablissement) REFERENCES etablissement(id_etablissement),
+ADD CONSTRAINT FK_EM_metier FOREIGN KEY(id_metier) REFERENCES metier(id_metier);
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
