@@ -73,6 +73,7 @@ if(isset($_GET['requestType'])){
     if(strtolower($_GET['requestType']) == "insert"){
         $existing_mail = mysqli_query($con, "SELECT * FROM utilisateur WHERE " . $cond_mail);
         if ($existing_mail->num_rows == null) {
+            
             mysqli_query($con,"INSERT INTO utilisateur (nom, prenom, mail, age,  mdp, id_metier, id_etablissement) VALUES (\"" . $nom . "\", \"" . $prenom . "\", \"" . $mail . "\", \"" . $age . "\", \"" . $password . "\", \"" . $id_metier . "\", \"" . $id_etablissement ."\")");
             $userData = mysqli_query($con,"SELECT * FROM utilisateur WHERE " . $cond_nom . " AND " . $cond_prenom . " AND " . $cond_mail . " AND ". $cond_loginMail . " AND " . $cond_password . " AND " . $cond_loginPassword);
             $response = array();
