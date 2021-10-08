@@ -681,37 +681,6 @@ export default {
     ],
     footeritems: [
       {
-        name: "Product",
-        tags: [
-          {
-            urlname: "Create Websites",
-            url: "#!",
-          },
-          {
-            urlname: "Secure Cloud Hosting",
-            url: "#!",
-          },
-          {
-            urlname: "Engage Your Audience",
-            url: "#!",
-          },
-          {
-            urlname: "Website Support",
-            url: "#!",
-          },
-        ],
-      },
-      {
-        name: "Company",
-        tags: [
-          { urlname: "About", url: "#!" },
-          { urlname: "Careers", url: "#!" },
-          { urlname: "Support", url: "#!" },
-          { urlname: "Pricing", url: "#!" },
-          { urlname: "FAQ", url: "#!" },
-        ],
-      },
-      {
         name: "Get Help",
         tags: [
           { urlname: "Comment s'inscrire ? ", url: "#!" },
